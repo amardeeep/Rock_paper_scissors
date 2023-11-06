@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Create getComputerChoice function which plays move for the computer using math.random
+        function getComputerChoice(){
+            let computerChoice="";
+            let number=0;
+            number=Math.floor(3*Math.random());
+            if (number==0){
+                computerChoice= "ROCKS";
+            }
+            else if (number==1){
+                computerChoice= "PAPERS";
+            }
+            else if (number==2){
+                computerChoice= "SCISSORS";
+            }
+            return computerChoice;
+            
+        }
+        //Create playerChoice that takes input from player and comverts it into a string
+        function getPlayerChoice(){
+            let input=prompt("Play Your move!(ROCKS,PAPERS,SCISSORS):");
+            let playerChoice=input.toUpperCase();
+            if (playerChoice=="ROCKS"){
+                return playerChoice;
+            }
+            else if (playerChoice=="PAPERS"){
+                return playerChoice;
+            }
+            else if (playerChoice=="SCISSORS"){
+                return playerChoice;
+            }
+            else{
+                alert("Invalid Move!")
+            }
+        }
+        //Create playRound that plays a round and gives results.When Player wins a round result is player and when computer wins a round result is computer.Draw fo draw.
+
+        function playRound(){
+            
+            let winner="";
+            playerChoice=getPlayerChoice();
+            computerChoice=getComputerChoice();
+            if (playerChoice=="ROCKS"){
+                if (computerChoice=="PAPERS"){
+                    winner="Computer";                    
+                    return winner;
+                }
+                else if(computerChoice=="SCISSORS"){
+                    winner="Player";
+                    return winner;
+                }
+                else if(computerChoice=="ROCKS"){
+                    winner="Draw";
+                    return winner;
+                }
+
+            }
+            else if(playerChoice=="PAPERS"){
+                if(computerChoice=="ROCKS"){
+                    winner="Player";
+                    return winner;
+                }
+                else if(computerChoice=="SCISSORS"){
+                    winner="Computer";
+                    return winner;
+                }
+                else if(computerChoice=="PAPERS"){
+                    winner=Draw;
+                    return winner;
+                }
+
+            }
+            else if(playerChoice=="SCISSORS"){
+                if(computerChoice=="ROCKS"){
+                    winner="Computer";
+                    return winner;
+                }
+                else if(computerChoice=="PAPERS"){
+                    winner="Player";
+                    return winner;
+                }
+                else if (computerChoice=="SCISSORS"){
+                    winner="Draw"
+                    return winner;
+                }
+            }
+        }
+        console.log(playRound());
+        
+    </script>
+    
+</body>
+</html>
